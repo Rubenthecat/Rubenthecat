@@ -19,22 +19,30 @@ class cart:
     items = []
     total = 0
 
-    def __init__(self):
-        self.item = ""
-        self.total = 0
-        self.description = ""
+    def __init__(self, item_name, quantity, description):
+        self.item = {"Item": item_name}
+        self.total = {"Quantity": quantity}
+        self.desc = {"Description": description}
+
+
+       
+
+
+    def pattributes(self):
+        print(self.item, self.total, self.desc)
         
 
     
 
-    def add_item(item_name):
-        cart.items.append(item_name)
+
+    def add_description(self, item_description):
+        self.desc = {'Description': item_description}
+        print(self.desc)
+
+    def add_item(self):
+
+        cart.items.append(self)
         cart.total += 1
-
-        
-        print("cart.items")
-        print(cart.items)
-
 
 
 
@@ -50,12 +58,32 @@ while (value != "q"):
 
     if (value == "a"):
 
-        item_name = (input("Please enter item name: "))
+        new_item = (input("Please enter item name: "))
+        quantity = (input("How many do you want to add?: "))
+        description = ""
         
-        cart.add_item(item_name)
+
+        item_name = new_item
+        item_name = cart(new_item, quantity, description)
+        item_name.add_item()
 
 
 
+        
+
+
+    if (value == "u"):
+        item_name = (input("What item do you want to describe?: "))
+
+        describe = item_name
+        describe = cart.add_description(describe)
+        
+    if (value == "p"):
+        item_name = (input("which attributes?: "))
+
+        cart.pattributes(item_name)
+
+        
 
 
     if(value == "d"):
@@ -63,8 +91,9 @@ while (value != "q"):
 
 
     else:
-        print("not coded yet")
+        continue
         
+
 
 
 print("See YA!")
